@@ -98,7 +98,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .gray {
@@ -369,64 +369,42 @@ body {
   gap: 17px;
 }
 
-.one {
-  position: relative;
-}
-
-.one::after {
-  position: absolute;
-  content: "1";
-  font-size: 64px;
-  text-align: center;
-  color: rgba(159, 152, 146, 0.39);
-  font-family: var(--kursiv-text);
-  bottom: 6px;
-  left: -13px;
-}
-
-.two {
-  position: relative;
-}
-
-.two::after {
-  position: absolute;
-  content: "2";
-  font-size: 64px;
-  text-align: center;
-  color: rgba(159, 152, 146, 0.39);
-  font-family: var(--kursiv-text);
-  bottom: 23px;
-  left: -25px;
-}
-
-.three {
-  position: relative;
-}
-
-.three::after {
-  position: absolute;
-  content: "3";
-  font-size: 64px;
-  text-align: center;
-  color: rgba(159, 152, 146, 0.39);
-  font-family: var(--kursiv-text);
-  bottom: 27px;
-  left: -25px;
-}
+.one,
+.two,
+.three,
 .four {
   position: relative;
 }
 
+/* Псевдоэлементы - скрыты */
+.one::after,
+.two::after,
+.three::after,
 .four::after {
   position: absolute;
-  content: "4";
   font-size: 64px;
   text-align: center;
   color: rgba(159, 152, 146, 0.39);
   font-family: var(--kursiv-text);
-  bottom: -13px;
-  left: -25px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+/* При появлении класса visible */
+.one.visible::after,
+.two.visible::after,
+.three.visible::after,
+.four.visible::after {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Индивидуальное позиционирование */
+.one::after { content: "1"; bottom: 6px; left: -13px; }
+.two::after { content: "2"; bottom: 23px; left: -25px; }
+.three::after { content: "3"; bottom: 27px; left: -25px; }
+.four::after { content: "4"; bottom: -13px; left: -25px; }
 
 .timer {
   display: flex;

@@ -146,3 +146,24 @@ function startCountdown(targetDate) {
 
 const newYear = new Date(2026, 7, 8, 9, 0, 0).getTime();
 startCountdown(newYear);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".one, .two, .three, .four");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Добавляем задержку каждому элементу
+          setTimeout(() => {
+            entry.target.classList.add("visible");
+          }, index * 300); // 0.3 секунды между появлениями
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  elements.forEach((el) => observer.observe(el));
+});
