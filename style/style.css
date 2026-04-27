@@ -387,8 +387,8 @@ body {
   color: rgba(159, 152, 146, 0.39);
   font-family: var(--kursiv-text);
   opacity: 0;
-  transform: translateY(20px) scale(0.8);
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateX(-20px) scale(0.8);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* При появлении класса visible */
